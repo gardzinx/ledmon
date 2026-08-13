@@ -37,9 +37,14 @@ struct cntrl_device {
 	int isci_present;
 
 	/**
-	 * Applicable to VMD controllers. Domain address.
+	 * Applicable to VMD controllers. BUS0 domain address.
 	 */
 	char domain[PATH_MAX];
+
+	/**
+	 * Applicable to VMD controllers. BUS1 domain address, if present.
+	 */
+	char domain1[PATH_MAX];
 
 	struct _host_type {
 		/**

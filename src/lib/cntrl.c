@@ -457,10 +457,17 @@ struct cntrl_device *cntrl_device_init(const char *path, struct led_ctx *ctx)
 					device->hosts = NULL;
 				}
 				if (type == LED_CNTRL_TYPE_VMD) {
-					char *domain = vmdssd_get_domain(path);
+					char *domain = vmdssd_get_domain(path, "domain");
 
 					if (domain != NULL) {
 						snprintf(device->domain, PATH_MAX,
+							 "%s", domain);
+						free(domain);
+					}
+
+					domain = vmdssd_get_domain(path, "domain1");
+					if (domain != NULL) {
+						snprintf(device->domain1, PATH_MAX,
 							 "%s", domain);
 						free(domain);
 					}

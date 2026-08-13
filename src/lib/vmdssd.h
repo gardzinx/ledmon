@@ -20,7 +20,7 @@
 
 status_t vmdssd_write(struct block_device *device, enum led_ibpi_pattern ibpi);
 char *vmdssd_get_path(const char *cntrl_path);
-char *vmdssd_get_domain(const char *path);
+char *vmdssd_get_domain(const char *path, const char *domain_name);
 struct pci_slot *vmdssd_find_pci_slot(struct led_ctx *ctx, const char *device_path);
 status_t vmdssd_write_attention_buf(struct pci_slot *slot, enum led_ibpi_pattern ibpi);
 enum led_ibpi_pattern vmdssd_get_attention(struct pci_slot *slot);
